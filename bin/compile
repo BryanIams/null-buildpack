@@ -10,7 +10,7 @@ BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
 echo $BIN_DIR
 
-BIN_ROOT=${PWD%/*}
+BIN_ROOT=$(dirname $BIN_DIR)
 
 echo $BIN_ROOT
 
