@@ -7,8 +7,15 @@ set -e
 export BUILD_DIR=$1
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
-. ../../lib/java
-. ../../lib/util
+
+echo $BIN_DIR
+
+BIN_ROOT=${PWD%/*}
+
+echo $BIN_ROOT
+
+. $BIN_ROOT/lib/java
+. $BIN_ROOT/lib/util
 
 # Install JDK
 install_java_with_overlay ${BUILD_DIR}
