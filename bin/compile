@@ -8,11 +8,7 @@ export BUILD_DIR=$1
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
-echo $BIN_DIR
-
 BIN_ROOT=$(dirname $BIN_DIR)
-
-echo $BIN_ROOT
 
 . $BIN_ROOT/lib/java
 . $BIN_ROOT/lib/util
