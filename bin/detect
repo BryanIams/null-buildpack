@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-echo "Null"
+get_client() {
+  local propFile=$1
+  local propName="client"
+  local propDefault="JVM Common"
+
+  if [ -f ${propFile} ]; then
+    local propValue=$(sed '/^\#/d' ${propFile} | grep "${propName}"  | tail -n 1 | cut -d "=" -f2- | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+    echo "${propValue:-$propDefault}"
+  else
+    echo "$propDefault"
+  fi
+}
+
+echo "JVM Common"
 exit 0

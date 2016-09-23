@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
-# bin/compile <build-dir> <cache-dir>
 
-echo "-----> Nothing to do."
+# fail fast
+set -e
+
+# parse args
+export BUILD_DIR=$1
+
+BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
+. ../../lib/java
+. ../../lib/util
+
+# Install JDK
+install_java_with_overlay ${BUILD_DIR}
