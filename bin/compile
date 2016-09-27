@@ -31,10 +31,10 @@ BUILDPACK_PATH=$compile_buildpack_dir source $compile_buildpack_dir/compile-exte
 translated_url=$($compile_buildpack_dir/compile-extensions/bin/download_dependency nginx.tgz /tmp)
 echo "Downloaded [$translated_url]"
 compile_nginx_tgz="/tmp/nginx.tgz"
-cd $build_dir
+cd $BUILD_DIR
 
 # Alternate root location (default is root of project) for html/js/css
-# root: dist/
+root: dist/
 if [[ -e "Staticfile" && "$(grep 'root:' Staticfile)X" != "X" ]]; then
   root_dir=$(grep 'root:' Staticfile | sed -e 's/^root: *//;s/\s*$//')
   status "Root folder $root_dir"
@@ -52,11 +52,11 @@ fi
 status "Copying project files into public/"
 shopt -s extglob
 root_dir_absolute=`cd $root_dir 2>/dev/null && pwd -P`
-if [ ${build_dir}/public != ${root_dir_absolute} ]; then
+if [ ${BUILD_DIR}/public != ${root_dir_absolute} ]; then
   tmp_dir=`mktemp -d /tmp/XXXXX`
   mv $root_dir_absolute/!(Staticfile|Staticfile.auth|manifest.yml|stackato.yml) $tmp_dir || true
-  rm -rf $build_dir/public
-  mv $tmp_dir  $build_dir/public
+  rm -rf $BUILD_DIR/public
+  mv $tmp_dir  $BUILD_DIR/public
 fi
 shopt -u extglob
 
@@ -65,8 +65,8 @@ tar xzf $compile_nginx_tgz
 cp -f $compile_buildpack_dir/conf/nginx.conf nginx/conf/nginx.conf
 cp -f $compile_buildpack_dir/conf/mime.types nginx/conf/mime.types
 
-[[ -f $build_dir/public/nginx.conf ]] && mv $build_dir/public/nginx.conf nginx/conf/nginx.conf
-[[ -f $build_dir/public/mime.types ]] && mv $build_dir/public/mime.types nginx/conf/mime.types
+[[ -f $BUILD_DIR/public/nginx.conf ]] && mv $BUILD_DIR/public/nginx.conf nginx/conf/nginx.conf
+[[ -f $BUILD_DIR/public/mime.types ]] && mv $BUILD_DIR/public/mime.types nginx/conf/mime.types
 
 if [[ -f Staticfile.auth ]]; then
   status "Enabling basic authentication"
