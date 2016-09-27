@@ -94,4 +94,4 @@ if [[ -e "Staticfile" && "$(grep 'pushstate: enabled' Staticfile)X" != "X" ]]; t
   touch nginx/conf/.enable_pushstate
 fi
 
-cp $compile_buildpack_bin/boot.sh .
+#cp $compile_buildpack_bin/boot.sh .
