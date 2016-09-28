@@ -97,6 +97,6 @@ fi
 cp -f $compile_buildpack_dir/conf/sonar.properties conf/sonar.properties
 #cp $compile_buildpack_bin/boot.sh .
 
-export_env_dir $ENV_DIR
+export_env_dir $ENV_DIR jdbcUrl
 
 printenv
