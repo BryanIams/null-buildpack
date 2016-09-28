@@ -96,3 +96,5 @@ fi
 
 cp -f $compile_buildpack_dir/conf/sonar.properties conf/sonar.properties
 #cp $compile_buildpack_bin/boot.sh .
+
+echo ENV["PORT"]
