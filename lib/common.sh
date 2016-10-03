@@ -47,17 +47,5 @@ extract_service() {
 
   vcap_services=$1
 
-  echo "-------------------"
-
   export jdbcUrl=$(echo "$vcap_services" | python -c "import sys, json; print json.load(sys.stdin)['cleardb'][0]['credentials']['jdbcUrl']")
-
-  echo "------------------TEST--------------"
-
-  echo "$jdbcUrl"
-
-  #result = echo $vcap_services | python3 -c "import sys, json; print(json.load(sys.stdin)['cleardb'][0]['plan'])"
-
-  #echo $result
-  
-  echo "Done with this trial" | indent
 }
