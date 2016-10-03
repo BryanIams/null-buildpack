@@ -45,7 +45,12 @@ export_env_dir() {
 
 extract_service() {
 
+
   vcap_services=$1
+
+  echo "$vcap_services"
+
+  echo "-------------------"
 
   python -c "import sys, json; print($vcap_services)"
 
