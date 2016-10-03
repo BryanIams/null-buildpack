@@ -42,3 +42,15 @@ export_env_dir() {
     done
   fi
 }
+
+extract_service() {
+  vcap_services=$1
+  
+  echo $vcap_services
+
+  result = echo $vcap_services | python -c "import sys, json; print json.load(sys.stdin)[cleardb]"
+
+  echo $result
+  
+  echo "Done with this trial" | indent
+}
