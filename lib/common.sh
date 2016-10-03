@@ -49,7 +49,7 @@ extract_service() {
 
   echo "-------------------"
 
-  export jdbcUrl=echo "$vcap_services" | python -c "import sys, json; print json.load(sys.stdin)['cleardb'][0]['credentials']['jdbcUrl']"
+  export jdbcUrl='$(echo "$vcap_services" | python -c "import sys, json; print json.load(sys.stdin)['cleardb'][0]['credentials']['jdbcUrl']")'
 
   echo "------------------TEST--------------"
 
