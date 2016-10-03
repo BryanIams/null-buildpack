@@ -101,4 +101,4 @@ echo $VCAP_SERVICES
 
 echo $DATABASE_URL
 
-extract_service
+extract_service "$VCAP_SERVICES"

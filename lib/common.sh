@@ -45,6 +45,8 @@ export_env_dir() {
 
 extract_service() {
 
+  VCAP_SERVICES = $1
+
   python -c "import sys, json; print($VCAP_SERVICES)"
 
   #result = echo $vcap_services | python3 -c "import sys, json; print(json.load(sys.stdin)['cleardb'][0]['plan'])"
