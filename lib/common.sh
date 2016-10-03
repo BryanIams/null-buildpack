@@ -49,7 +49,7 @@ extract_service() {
 
   echo "-------------------"
 
-  echo "$vcap_services" | python -c "import sys, json; print json.load(sys.stdin)"
+  echo "$vcap_services" | python -c "import sys, json; print json.load(sys.stdin)['cleardb'][0]['plan']"
 
   #result = echo $vcap_services | python3 -c "import sys, json; print(json.load(sys.stdin)['cleardb'][0]['plan'])"
 
