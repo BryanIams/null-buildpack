@@ -98,6 +98,6 @@ fi
 cp -f $compile_buildpack_dir/conf/sonar.properties conf/sonar.properties
 #cp $compile_buildpack_bin/boot.sh .
 
-echo $BUILD_DIR
+echo "$BUILD_DIR"
 
-ls $BUILD_DIR | echo
+ls "$BUILD_DIR" | echo
