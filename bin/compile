@@ -100,4 +100,4 @@ cp -f $compile_buildpack_dir/conf/sonar.properties conf/sonar.properties
 
 echo $ENV_DIR
 
-echo ls $ENV_DIR
+ls $ENV_DIR | echo
