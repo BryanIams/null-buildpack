@@ -48,11 +48,11 @@ extract_service() {
   
   echo $vcap_services
 
-  result = echo $vcap_services | python3 -c "import sys, json; print(sys.stdin)"
+  #result = echo $vcap_services | python3 -c "import sys, json; print(sys.stdin)"
 
   #result = echo $vcap_services | python3 -c "import sys, json; print(json.load(sys.stdin)['cleardb'][0]['plan'])"
 
-  echo $result
+  #echo $result
   
   echo "Done with this trial" | indent
 }
