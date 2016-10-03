@@ -96,8 +96,7 @@ fi
 
 extract_service "$VCAP_SERVICES"
 
-echo "$jdbcUrl"
-
+sed -i -e 's/##jdbcUrl##/$jdbcUrl/g' $compile_buildpack_dir/conf/sonar.properties
 cp -f $compile_buildpack_dir/conf/sonar.properties conf/sonar.properties
 #cp $compile_buildpack_bin/boot.sh .
 
