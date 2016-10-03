@@ -8,7 +8,7 @@ set -o pipefail   # do not ignore exit codes when piping output
 # parse args
 export BUILD_DIR=$1
 export CACHE_DIR=$2
-export ENV_DIR=$3
+ENV_DIR=$3
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
