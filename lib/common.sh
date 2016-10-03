@@ -47,5 +47,5 @@ extract_service() {
 
   vcap_services=$1
 
-  export jdbcUrl=$(echo "$vcap_services" | python -c "import sys, json; print json.load(sys.stdin)['cleardb'][0]['credentials']['jdbcUrl']")
+  export jdbcUrl=$(echo "$(echo "$vcap_services" | python -c "import sys, json; print json.load(sys.stdin)['cleardb'][0]['credentials']['jdbcUrl']")", | sed 's|&|\\&|')
 }
