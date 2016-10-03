@@ -8,7 +8,7 @@ set -o pipefail   # do not ignore exit codes when piping output
 # parse args
 export BUILD_DIR=$1
 export CACHE_DIR=$2
-ENV_DIR=$3
+export ENV_DIR_TEST=$3
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 
@@ -98,6 +98,6 @@ fi
 cp -f $compile_buildpack_dir/conf/sonar.properties conf/sonar.properties
 #cp $compile_buildpack_bin/boot.sh .
 
-echo "$BUILD_DIR"
+echo "$ENV_DIR_TEST"
 
-ls "$BUILD_DIR" | echo
+ls "$ENV_DIR_TEST"
