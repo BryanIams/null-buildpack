@@ -94,9 +94,9 @@ if [[ -e "Staticfile" && "$(grep 'pushstate: enabled' Staticfile)X" != "X" ]]; t
   touch nginx/conf/.enable_pushstate
 fi
 
-extract_service "$VCAP_SERVICES"
+#extract_service "$VCAP_SERVICES"
 
-echo $jdbcUrl
+#echo $jdbcUrl
 
 #sed "s|--JDBCURL--|$jdbcUrl|g" $compile_buildpack_dir/conf/sonar.properties > conf/sonar.properties
 #sed -i "s|--JDBCURL--|$jdbcUrl|g" $compile_buildpack_dir/conf/sonar.properties
